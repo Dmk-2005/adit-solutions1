@@ -9,14 +9,14 @@ const Teams = () => {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
-      className="flex flex-col items-center gap-7 px-4 sm:px-12 lg:px-24 xl:px-40 pt-30 text-gray-800 dark:text-white"
+      className="flex flex-col items-center px-4 py-20 text-gray-800 gap-7 sm:px-12 lg:px-24 xl:px-40 dark:text-white"
     >
       <Title
         title="Meet the team"
         desc="A passionate team of digital experts dedicated to your brand’s success."
       />
 
-      <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 gap-5">
+      <div className="grid grid-cols-1 gap-5 md:grid-cols-3 xl:grid-cols-4">
         {teamData.map((team, index) => (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -25,11 +25,11 @@ const Teams = () => {
             viewport={{ once: true }}
 
             key={index}
-            className="flex max-sm:flex-col items-center gap-5 p-6 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 shadow-lg hover:shadow-2xl hover:border-blue-500/30 hover:scale-105 transition-all duration-500"
+            className="flex items-center gap-5 p-6 transition-all duration-500 bg-white border border-gray-200 shadow-lg max-sm:flex-col rounded-xl dark:border-gray-700 dark:bg-gray-900 hover:shadow-2xl hover:border-blue-500/30 hover:scale-105"
           >
             <img src={team.image} className="w-12 h-12 rounded-full" alt="" />
             <div className="flex-1">
-              <h3 className="font-bold text-sm">{team.name}</h3>
+              <h3 className="text-sm font-bold">{team.name}</h3>
               <p className="text-xs opacity-60">{team.title}</p>
             </div>
           </motion.div>

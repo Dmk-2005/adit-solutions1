@@ -71,5 +71,5 @@ const assets = {
 export default assets
 
 export const teamData = [
-  { name: 'Amber Foster', title: 'Senior writer', image: 'https://randomuser.me/api/portraits/women/14.jpg' },
+  { name: 'Aditya', title: 'Founder', image: '' },
 ]

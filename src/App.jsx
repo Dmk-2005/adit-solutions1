@@ -20,17 +20,26 @@ const getInitialTheme = () => {
 
 const App = () => {
   const [theme, setTheme] = useState(getInitialTheme)
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   useEffect(() => {
     document.documentElement.classList.toggle('dark', theme === 'dark')
     localStorage.setItem('theme', theme)
   }, [theme])
 
+  useEffect(() => {
+    if (sidebarOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+  }, [sidebarOpen]);
+
   return (
     <div className="relative  bg-white dark:bg-black transition-colors">
       <style>{`* { cursor: revert; }`}</style>
       <Toaster />
-      <Navbar theme={theme} setTheme={setTheme} />
+      <Navbar theme={theme} setTheme={setTheme} sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
       <Hero />
       <About />
       <Services />
