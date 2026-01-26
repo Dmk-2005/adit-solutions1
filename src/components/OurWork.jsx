@@ -8,19 +8,19 @@ const OurWork = () => {
     {
       title: "Mobile app marketing",
       description:
-        "We turn bold ideas into powerful digital solutions that connect...",
+        "Helped a local fitness app increase their user base through social media campaigns and targeted advertising.",
       image: assets.work_mobile_app,
     },
     {
       title: "Dashboard management",
       description:
-        "We turn bold ideas into powerful digital solutions that connect...",
+        "Redesigned a client's analytics dashboard to make it more user-friendly and easier to navigate.",
       image: assets.work_dashboard_management,
     },
     {
       title: "Fitness app promotion",
       description:
-        "We turn bold ideas into powerful digital solutions that connect...",
+        "Created promotional content and managed social media presence for a fitness startup's app launch.",
       image: assets.work_fitness_app,
     },
   ];
@@ -32,7 +32,7 @@ const OurWork = () => {
       viewport={{ once: true }}
       transition={{ staggerChildren: 0.2 }}
       id="our-work"
-      className="flex flex-col items-center gap-7 px-4 sm:px-12 lg:px-24 xl:px-40 py-20 text-gray-700 dark:text-white bg-gray-50 dark:bg-transparent"
+      className="flex flex-col items-center gap-7 px-4 sm:px-12 lg:px-24 xl:px-40 pt-16 pb-20 text-gray-700 dark:text-white"
     >
       <Title
         title="Our latest work"

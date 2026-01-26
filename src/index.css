@@ -10,6 +10,12 @@
   cursor: none;
 }
 
+/* Smooth scrolling with offset to account for fixed navbar */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 120px;
+}
+
 @theme {
   --color-primary: #5044E5;
 }

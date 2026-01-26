@@ -9,7 +9,7 @@ const Teams = () => {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
-      className="flex flex-col items-center px-4 py-20 text-gray-800 gap-7 sm:px-12 lg:px-24 xl:px-40 dark:text-white"
+      className="flex flex-col items-center px-4 pt-16 pb-20 text-gray-800 gap-7 sm:px-12 lg:px-24 xl:px-40 dark:text-white"
     >
       <Title
         title="Meet the team"
