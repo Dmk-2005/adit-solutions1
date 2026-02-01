@@ -44,9 +44,9 @@ const Navbar = ({ theme, setTheme, sidebarOpen, setSidebarOpen }) => {
   };
 
   const getLinkClasses = (sectionId) => {
-    const baseClasses = "text-2xl px-4 py-2 sm:px-3 sm:py-1 transition-all duration-300 rounded-lg relative";
+    const baseClasses = "px-4 py-3 sm:px-3 sm:py-1 transition-all duration-300 rounded-lg relative w-full sm:w-auto text-left sm:text-center";
     const activeClasses = "text-blue-600 dark:text-blue-400 font-semibold after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:transform after:-translate-x-1/2 after:w-8 after:h-0.5 after:bg-gradient-to-r after:from-blue-500 after:to-indigo-500 after:rounded-full";
-    const inactiveClasses = "text-gray-700 dark:text-white hover:text-gray-900 dark:hover:text-gray-200 hover:bg-gray-100/50 dark:hover:bg-gray-800/50 hover:scale-105";
+    const inactiveClasses = "text-gray-700 dark:text-white hover:text-gray-900 dark:hover:text-gray-200 hover:bg-white/50 dark:hover:bg-gray-700/50 hover:scale-105 sm:hover:bg-gray-100/50 sm:dark:hover:bg-gray-800/50";
     
     return `${baseClasses} ${activeSection === sectionId ? activeClasses : inactiveClasses}`;
   };
@@ -73,27 +73,27 @@ const Navbar = ({ theme, setTheme, sidebarOpen, setSidebarOpen }) => {
       {/* Sidebar / Menu Links */}
       <div
         onClick={() => setSidebarOpen(false)}
-        className={`absolute sm:static top-full right-0 h-screen sm:h-auto flex flex-col sm:flex-row sm:items-center gap-5 sm:bg-transparent transition-all duration-300
-          ${sidebarOpen ? "w-full bg-blue-600 text-white items-center justify-center" : "w-0 overflow-hidden sm:w-auto sm:pl-0 sm:pt-0 text-gray-700 dark:text-white sm:text-lg"}`}
+        className={`absolute sm:static top-full right-0 sm:h-auto flex flex-col sm:flex-row sm:items-center gap-5 sm:bg-transparent transition-all duration-300 rounded-2xl sm:rounded-none
+          ${sidebarOpen ? "w-80 max-w-[90vw] bg-gradient-to-br from-white/95 via-blue-50/90 to-indigo-100/95 dark:from-gray-800/95 dark:via-gray-900/90 dark:to-blue-900/95 backdrop-blur-xl border border-white/20 dark:border-gray-700/30 shadow-2xl text-gray-800 dark:text-white items-start justify-start p-6 mt-2" : "w-0 overflow-hidden sm:w-auto sm:pl-0 sm:pt-0 text-gray-700 dark:text-white sm:text-lg"}`}
       >
         {/* Close Button (Mobile Only) */}
         <img
           src={assets.close_icon}
           alt="close"
-          className="absolute w-5 cursor-pointer right-4 top-4 sm:hidden"
+          className="absolute w-6 h-6 cursor-pointer right-4 top-4 sm:hidden opacity-70 hover:opacity-100 transition-opacity"
           onClick={() => setSidebarOpen(false)}
         />
 
-        <a onClick={(e) => handleSmoothScroll(e, 'hero')} href="#hero" className={getLinkClasses('hero')}>
+        <a onClick={(e) => handleSmoothScroll(e, 'hero')} href="#hero" className={`${getLinkClasses('hero')} sm:text-lg text-base`}>
           Home
         </a>
-        <a onClick={(e) => handleSmoothScroll(e, 'about')} href="#about" className={getLinkClasses('about')}>
+        <a onClick={(e) => handleSmoothScroll(e, 'about')} href="#about" className={`${getLinkClasses('about')} sm:text-lg text-base`}>
           About
         </a>
-        <a onClick={(e) => handleSmoothScroll(e, 'services')} href="#services" className={getLinkClasses('services')}>
+        <a onClick={(e) => handleSmoothScroll(e, 'services')} href="#services" className={`${getLinkClasses('services')} sm:text-lg text-base`}>
           Services
         </a>
-        <a onClick={(e) => handleSmoothScroll(e, 'our-work')} href="#our-work" className={getLinkClasses('our-work')}>
+        <a onClick={(e) => handleSmoothScroll(e, 'our-work')} href="#our-work" className={`${getLinkClasses('our-work')} sm:text-lg text-base`}>
           Our Work
         </a>
       </div>
