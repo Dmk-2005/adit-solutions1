@@ -26,10 +26,8 @@ const Hero = () => {
       
       const handleVideoEnd = () => {
         setIsVideoPlaying(false);
-        // Wait 1 second after video ends, then move to next slide
-        timeoutRef.current = setTimeout(() => {
-          setCurrentSlide((prev) => (prev + 1) % carouselItems.length);
-        }, 1000);
+        // Immediately move to next slide when video ends (no static time)
+        setCurrentSlide((prev) => (prev + 1) % carouselItems.length);
       };
 
       currentVideo.addEventListener('ended', handleVideoEnd);

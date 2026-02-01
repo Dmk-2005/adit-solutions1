@@ -76,10 +76,18 @@ const Footer = ({ theme }) => {
         className="pb-6 text-sm text-gray-500 flex justify-center sm:justify-between gap-4 flex-wrap">
         <p>Copyright 2026 © Aditya digital Innovations - All Right Reserved.</p>
         <div className="flex items-center justify-between gap-4">
-          <img src={assets.facebook_icon} alt="" />
-          <img src={assets.twitter_icon} alt="" />
-          <img src={assets.instagram_icon} alt="" />
-          <img src={assets.linkedin_icon} alt="" />
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform duration-300">
+            <img src={assets.facebook_icon} alt="Facebook" />
+          </a>
+          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform duration-300">
+            <img src={assets.twitter_icon} alt="Twitter" />
+          </a>
+          <a href="https://instagram.com/digital_innovations_99" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform duration-300">
+            <img src={assets.instagram_icon} alt="Instagram" />
+          </a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform duration-300">
+            <img src={assets.linkedin_icon} alt="LinkedIn" />
+          </a>
         </div>
       </motion.div>
     </motion.div>

@@ -1,59 +1,31 @@
-import React from "react";
+import React, { useRef } from "react";
 import Title from "./Title";
 import assets from "../assets/assets";
 import toast from "react-hot-toast";
 import { motion } from "framer-motion";
+import emailjs from '@emailjs/browser';
 
 const ContactUs = () => {
-  const onSubmit = async (event) => {
-    event.preventDefault();
+  const form = useRef();
 
-    // Get form values
-    const name = event.target.name.value;
-    const email = event.target.email.value;
-    const message = event.target.message.value;
+  const onSubmit = (e) => {
+    e.preventDefault();
 
-    // Validate form
-    if (!name || !email || !message) {
-      toast.error("Please fill in all fields");
-      return;
-    }
-
-    try {
-      // Create a simple solution that works
-      const formData = new FormData();
-      formData.append('name', name);
-      formData.append('email', email);
-      formData.append('message', message);
-      formData.append('access_key', '2738e7c3-8bc9-46d4-acac-071c74d03fa6');
-
-      const response = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        body: formData
-      });
-
-      const result = await response.json();
-
-      if (result.success) {
+    // EmailJS configuration with your actual values
+    emailjs.sendForm(
+      'service_tmr3itp',      // Your Service ID
+      'template_quvkqul',     // Your Template ID
+      form.current,
+      'Z4_ulpiZWNA9JWorG'     // Your Public Key
+    )
+    .then((result) => {
+        console.log('SUCCESS!', result.text);
         toast.success("Message sent successfully! We'll get back to you soon.");
-        event.target.reset();
-      } else {
-        // Show success message anyway since form validation passed
-        toast.success("Message received! We'll get back to you soon.");
-        event.target.reset();
-        
-        // Log the actual error for debugging
-        console.log("Form submission details:", { name, email, message });
-      }
-    } catch (error) {
-      console.error("Submission error:", error);
-      // Show success message to user, log error for debugging
-      toast.success("Message received! We'll get back to you soon.");
-      event.target.reset();
-      
-      // Log form data for manual follow-up
-      console.log("Form data for manual follow-up:", { name, email, message });
-    }
+        form.current.reset();
+    }, (error) => {
+        console.log('FAILED...', error.text);
+        toast.error("Failed to send message. Please try again or contact us directly at digiinnovations99@gmail.com");
+    });
   };
 
   return (
@@ -161,11 +133,11 @@ const ContactUs = () => {
             <h2 className="text-3xl font-bold text-white mb-2">Send us a Message</h2>
           </div>
 
-          <form onSubmit={onSubmit} className="space-y-6">
+          <form ref={form} onSubmit={onSubmit} className="space-y-6">
             <div>
               <input
                 type="text"
-                name="name"
+                name="user_name"
                 placeholder="Your Name"
                 className="w-full p-4 text-sm bg-white/90 dark:bg-gray-800/90 backdrop-blur-md outline-none rounded-2xl border-2 border-transparent focus:border-blue-400 focus:bg-white dark:focus:bg-gray-800 placeholder-gray-500 dark:placeholder-gray-400 text-gray-800 dark:text-white font-medium transition-all duration-300"
                 required
@@ -175,7 +147,7 @@ const ContactUs = () => {
             <div>
               <input
                 type="email"
-                name="email"
+                name="user_email"
                 placeholder="Your Email"
                 className="w-full p-4 text-sm bg-white/90 dark:bg-gray-800/90 backdrop-blur-md outline-none rounded-2xl border-2 border-transparent focus:border-purple-400 focus:bg-white dark:focus:bg-gray-800 placeholder-gray-500 dark:placeholder-gray-400 text-gray-800 dark:text-white font-medium transition-all duration-300"
                 required
