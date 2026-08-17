@@ -29,6 +29,7 @@ import google_logo from './google_logo.svg'
 import menu_icon_dark from './menu_icon_dark.svg'
 import sun_icon from './sun_icon.svg'
 import moon_icon from './moon_icon.svg'
+import aditya from './aditya.jpg'
 
 
 export const company_logos = [
@@ -71,5 +72,8 @@ const assets = {
 export default assets
 
 export const teamData = [
-  { name: 'Aditya', title: 'Founder', image: '' },
+  { name: 'Aditya', title: 'Founder', image: aditya },
+  { name: 'Kiran', title: 'Tech Lead', image: '' },
+  { name: 'Chaturya', title: 'Creative Lead', image: '' },
+  { name: 'Meghana', title: 'Marketing Analyst', image: '' },
 ]

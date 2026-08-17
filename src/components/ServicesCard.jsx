@@ -1,18 +1,29 @@
 import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
-
+import { useNavigate } from "react-router-dom";
 
 const ServicesCard = ({ service, index }) => {
-
     const [position, setPosition] = useState({ x: 0, y: 0 })
     const [visible, setVisible] = useState(false);
-
     const divRef = useRef(null)
+    const navigate = useNavigate();
+
+    const routeMap = {
+      'Advertising': '/services/advertising',
+      'Content marketing': '/services/content-marketing',
+      'Content writing': '/services/content-writing',
+      'Social media': '/services/social-media',
+    };
 
     const handelMouseMove = (e) => {
         const bounds = divRef.current.getBoundingClientRect();
         setPosition({ x: e.clientX - bounds.left, y: e.clientY - bounds.top })
     }
+
+    const handleLearnMore = () => {
+      const route = routeMap[service.title];
+      if (route) navigate(route);
+    };
 
     return (
         <motion.div
@@ -54,12 +65,15 @@ const ServicesCard = ({ service, index }) => {
 
                     {/* Call to action */}
                     <div className="flex items-center">
-                        <div className="flex items-center gap-2 text-blue-600 dark:text-blue-400 font-semibold text-sm group-hover:gap-3 transition-all duration-300 cursor-pointer">
+                        <button
+                          onClick={handleLearnMore}
+                          className="flex items-center gap-2 text-blue-600 dark:text-blue-400 font-semibold text-sm group-hover:gap-3 transition-all duration-300 cursor-pointer hover:underline"
+                        >
                             <span>Learn More</span>
                             <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                             </svg>
-                        </div>
+                        </button>
                     </div>
                 </div>
             </div>
