@@ -12,7 +12,7 @@ import Footer from './components/Footer'
 import AdvertisingPage from './pages/AdvertisingPage'
 import ContentMarketingPage from './pages/ContentMarketingPage'
 import ContentWritingPage from './pages/ContentWritingPage'
-import SocialMediaPage from './pages/SocialMediaPage'
+import ScrollToTop from './components/ScrollToTop'
 
 const getInitialTheme = () => {
   const saved = localStorage.getItem('theme')
@@ -67,6 +67,7 @@ const App = () => {
 
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<MainLayout theme={theme} setTheme={setTheme} />} />
         <Route path="/services/advertising" element={<AdvertisingPage />} />
