@@ -13,6 +13,7 @@ import AdvertisingPage from './pages/AdvertisingPage'
 import ContentMarketingPage from './pages/ContentMarketingPage'
 import ContentWritingPage from './pages/ContentWritingPage'
 import ScrollToTop from './components/ScrollToTop'
+import SocialMediaPage from './pages/SocialMediaPage'
 
 const getInitialTheme = () => {
   const saved = localStorage.getItem('theme')
